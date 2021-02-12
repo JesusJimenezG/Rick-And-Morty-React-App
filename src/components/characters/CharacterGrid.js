@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Loader from "react-loader-spinner";
+import Search from '../ui/Search';
 import CharacterCard from './CharacterCard';
 import Provider from '../../services/Provider';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -15,7 +16,7 @@ const CharacterGrid = () => {
 
     useEffect(() => {
         const fetchCharacters = async () => {
-            const characters = await Provider(page)
+            const characters = await Provider.fetchCharacters(page)
             if (currentPage <= characters.info.pages) {
                 setCharacters(prev => [...prev, ...characters.results])
             }
@@ -23,7 +24,7 @@ const CharacterGrid = () => {
         }
         fetchCharacters()
     }, [page, currentPage])
-
+    
     return loading
         ? (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Loader
