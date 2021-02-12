@@ -37,6 +37,7 @@ const CharacterGrid = () => {
         : (
             <InfiniteScroll
                 dataLength={characters.length}
+                scrollThreshold={1}
                 next={() => setTimeout(() => {
                     setPage(currentPage += 1)
                 }, 2000)}

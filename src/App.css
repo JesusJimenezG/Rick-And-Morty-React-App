@@ -102,7 +102,7 @@ input[type='text'] {
 .card-front,
 .card-back {
     border-radius: 25px;
-    box-shadow: 10px 10px 5px rgba(0,0,0,0.3);
+    box-shadow: 7px 7px 12px rgba(0,0,0,0.3);
     backface-visibility: hidden;
     height: 100%;
     position: absolute;
